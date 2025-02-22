@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Monitor</title>
+</head>
+<body>
+    <h1>System Monitor</h1>
+    <p><strong>Full Name:</strong> {{ full_name }}</p>
+    <p><strong>Username:</strong> {{ username }}</p>
+    <p><strong>Server Time (IST):</strong> {{ server_time_ist }}</p>
+
+    {% if system_info.error %}
+        <p style="color: red;">{{ system_info.error }}</p>
+    {% else %}
+        <h2>Top Output: </h2>
+
+        <h3>CPU Usage</h3>
+        <pre>{{ system_info.cpu_usage }}</pre>
+
+        <h3>Memory Usage</h3>
+        <pre>{{ system_info.mem_usage }}</pre>
+
+        <h3>Disk Usage</h3>
+        <pre>{{ system_info.disk_usage }}</pre>
+
+        <h3>Top 10 Processes (by CPU)</h3>
+        <pre>{{ system_info.top_processes }}</pre>
+
+    {% endif %}
+
+</body>
+</html>
